@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <script type="text/javascript">
+
+        var answer = parseInt(Math.random()*100);
+        var userAnswer = prompt("Угадайте число от 0 до 100");
+        var maxTryCount = 2
+        for(var tryCount = 1; tryCount < maxTryCount; tryCount++){
+
+            if(userAnswer == answer) {
+                alert("Gratz!");
+                break;
+            } else if(userAnswer > answer){
+                alert("Больше, чем загадано");
+            } else if(userAnswer < answer){
+                alert("Меньше, чем загадано");
+            }
+            userAnswer = +prompt("Попробуйте снова! \n У вас осталось " + (maxTryCount - tryCount) + " попыток");
+
+
+
+        }
+        if(tryCount == maxTryCount) {
+            alert("You lose!");
+            }
+
+        alert("Правильный ответ: " + answer);
+
+
+    </script>
 </head>
 <body>
-$END$
+
 </body>
 </html>
