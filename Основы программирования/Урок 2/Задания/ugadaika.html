@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        totalPlayers = +prompt("Введите количество игроков от 2 до 5");
+        if(totalPlayers > 5 || totalPlayers < 2) {
+            alert("Error! Неверное количество игроков!\nНужно ввести количество от 2 до 5");
+        } else {
+
+            outer: for(var tryCount = 1; tryCount < Infinity; tryCount++){
+                var answer = parseInt(Math.random()*1);
+                for(i = 1; i <= totalPlayers; i++){
+
+
+                        var userAnswer = prompt("Игрок " + i + ", Ваш ход!\nУгадайте число от 0 до 100\nЕсли устали играть, можете написать GG");
+                        if(userAnswer == answer) {
+                            alert("Gratz! Игрок: " + i + " победил!");
+                            break outer;
+                        } else if(userAnswer > answer){
+                            alert("Больше, чем загадано");
+                        } else if(userAnswer < answer){
+                            alert("Меньше, чем загадано");
+                        } else if(userAnswer == "GG") {
+                            alert("Спасибо за игру! До свидания!");
+                            break outer;
+                        }
+                }
+             }
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

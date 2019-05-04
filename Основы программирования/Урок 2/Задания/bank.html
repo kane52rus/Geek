@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bank</title>
+    <script type="text/javascript">
+        var money =+ parseInt(prompt("Введите сумму, которую хотите внести"));
+        var percent =+ parseInt(prompt("Введите процентную ставку"));
+        var years = 5
+
+        if(money >= 0 && percent >= 0) {
+            for(var i = 1; i <= 5; i++){
+
+                money = money + (money * (percent / 100));
+                alert("Сумма вклада на " + i + " год: " + money);
+            }
+        } else {
+            alert("Вы ввели неверную сумму или процентную ставку.\nЧисла должны быть положительными.")
+            }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
