@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        var n = getRandomNumber(100);
+        var m = getRandomNumber(4);
+        var a = max(34, 68);
+        var c = max(a, 98);
+        var f = factorial(5);
+
+        function factorial(n){
+            var result = 1;
+            for(var i = 1; i <= n; i++){
+                result = result * i
+            }
+            return result;
+        }
+
+        function max(a, b){
+            if(a >= b) {
+                return a;
+            } else {
+                return b;
+            }
+            alert("Никогда не выполнится");
+
+        }
+
+        function getRandomNumber(max){
+            return Math.round(Math.random() * max);
+        }
+
+        function recursiveFactorial(n){
+
+            if(n == 0)
+                return 1;
+            else
+                return recursiveFactorial(n - 1) * n;
+        }
+        var rf = recursiveFactorial(5);
+        alert(rf);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

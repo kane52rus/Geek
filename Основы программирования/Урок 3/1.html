@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+
+    function compareAnswers(userAnswer, answer) {
+        if(userAnswer == answer){
+            alert("All right");
+        } else {
+            alert("Неверно. Правильный ответ - " + answer);
+        }
+
+    }
+    function getRandomNumber(max){
+            return Math.round(Math.random() * max);
+    }
+
+    function generateRandomNumberArray(length){
+        var numbers = [];
+
+        for(var i = 0; i < length; i++){
+            var randomNumber = getRandomNumber(100);
+            numbers.push(randomNumber);
+        }
+        return numbers;
+    }
+
+
+        var numbers = generateRandomNumberArray(5);
+
+
+
+
+        alert("Порядок чисел: " + numbers);
+
+        var userAnswer = +prompt("Какое было первое число");
+        compareAnswers(userAnswer, numbers[0]);
+
+        userAnswer = +prompt("А последнее?");
+        compareAnswers(userAnswer, numbers[numbers.length - 1]);
+
+        var n = getRandomNumber(numbers.length - 1);
+        userAnswer = +prompt("А как насчет числа под номером " + (n + 1) + "?");
+        compareAnswers(userAnswer, numbers[n]);
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
