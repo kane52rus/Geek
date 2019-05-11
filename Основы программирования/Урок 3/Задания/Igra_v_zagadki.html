@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Igra v zagadki</title>
+    <script type="text/javascript">
+
+        var totalScore = 0
+        var firstRiddle = "Зимой и летом - одним цветом. Что это?";
+        var firstRightAnswer = ["Елка","елка","Ель","ель","Елочка","елочка"];
+        var secondRiddle = "Сто одежек, все без застежек. Что это?";
+        var secondRightAnswer = ["Капуста","капуста"];
+        var thirdRiddle = "Летом серый, зимой белый. Что это?";
+        var thirdRightAnswer = ["Заяц","заяц","Зайчик","зайчик","Зайка","зайка"];
+
+            function riddles(riddle,rightAnswer){
+
+                var answer = prompt(riddle);
+                var searchAnswer = rightAnswer.filter(function(item){return item == answer;});
+                if(answer == searchAnswer) {
+                    totalScore++;
+                    alert("Верный ответ");
+                } else {
+                    alert("Неверно");
+                }
+
+            }
+
+            riddles(firstRiddle,firstRightAnswer);
+            riddles(secondRiddle,secondRightAnswer);
+            riddles(thirdRiddle,thirdRightAnswer);
+
+
+        alert("Game over\nВаше количество правильных ответов: " + totalScore);
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

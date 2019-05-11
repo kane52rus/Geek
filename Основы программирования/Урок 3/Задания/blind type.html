@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        function generateText(letters, length){
+            var text = "";
+            for(var i = 0; i < length; i++){
+
+                var n = getRandomNumber(letters.length - 1);
+                text = text + letters[n];
+
+            }
+            return text;
+        }
+
+        function getRandomNumber(max){
+            return Math.round(Math.random() * max);
+        }
+
+
+
+        alert("Вас приветствует программа по обучению слепой печати");
+
+
+            while(true){
+                alert("Положите 4 пальца левой руки - мизинец, безымянный, средний и указательный - на клавиши ф, ы, в, а.\nЗапомните, что буква А находится под вашим указательным пальцем, а Ф - под мизинцем. Теперь неспеша набирайте текст.\nПостарайтесь не смотреть на клавиатуру.");
+
+                var text = generateText(["ф","а","в","а"], 10);
+                var userText = prompt(text);
+
+                if(userText == text){
+                    alert("All right");
+                    break;
+                } else {
+                    alert("Vse ploho");
+                }
+            }
+            alert("Level 2");
+            while(true){
+                alert("Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Мизинец правой руки на букву Ж, безымянный палец — на Д, средний — на Л, указательный — на О. Запомните расположение пальцев. Повторяйте за мной");
+
+                var text = generateText(["ы","в"], 10);
+                var userText = prompt(text);
+
+                if(userText == text){
+                    alert("All right");
+                    break;
+                } else {
+                    alert("Vse ploho");
+                }
+            }
+            alert("Level 3");
+            while(true){
+                alert("Поставьте мизинец левой руки на букву Ф, безымянный палец — на Ы, средний — на В, указательный — на А. Мизинец правой руки на букву Ж, безымянный палец — на Д, средний -— на Л, указательный — на О. Запомните расположение пальцев");
+                var text = generateText(["ж","о"], 10);
+                var userText = prompt(text);
+
+                if(userText == text){
+                    alert("All right");
+                    break;
+                } else {
+                    alert("Vse ploho");
+                }
+            }
+            document.write("<h1>Поздравляю! Все этапы пройдены</h1>");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
