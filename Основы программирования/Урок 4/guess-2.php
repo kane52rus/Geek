@@ -68,6 +68,9 @@
 
 		<div class="contentWrap">
 			<div class="content">
+			    <?php
+	    include "menu.php";
+	?>
 				<div class="center">
 
 					<h1>Игра угадайка</h1>
