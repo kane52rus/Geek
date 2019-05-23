@@ -7,7 +7,7 @@ name = input("Ваше имя? ")
 print("hello, ", name)
 
 work = input("Давайте поработаем? (Y/N) ")
-
+while :
 if work == 'y':
     print("Let`s go! Я могу сделать: ")
     print("[1] Выведу список файлов ")
