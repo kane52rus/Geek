@@ -3,6 +3,35 @@ import psutil
 import sys
 import shutil
 
+def dupl(file):
+    if os.path.isfile(file):
+        newfile = file + '.dupl'
+        shutil.copy(file, newfile)
+        if os.path.exists(newfile):
+            print("Файл ", newfile, " был успешно создан")
+            return True
+        else:
+            print("Есть какие-то проблемы копирования")
+            return False
+
+def sysinfo():
+    print('File system coding:', sys.getfilesystemencoding())
+    print('Platform:', sys.platform)
+    print('CPU number:', os.cpu_count())
+    print('Login:', os.getlogin())
+    print('Current directory:', os.getcwd())
+
+def delete(file_list):
+    success = 0
+    for f in file_list:
+            fullname = os.path.join(dirname, f)
+            if fullname.endswith('.dupl'):
+                os.remove(fullname)
+                if not os.path.exists(fullname):
+                    success += 1
+                    print("Файл ", fullname, " был успешно удален")
+    return success
+
 name = input("Ваше имя? ")
 print("hello, ", name)
 
@@ -22,36 +51,26 @@ while work != 'q':
         if do == 1:
             print(os.listdir())
         elif do == 2:
-            print('File system coding:', sys.getfilesystemencoding())
-            print('Platform:', sys.platform)
-            print('CPU number:', os.cpu_count())
-            print('Login:', os.getlogin())
-            print('Current directory:', os.getcwd())
+            sysinfo()
+
         elif do == 3:
             print(psutil.pids())
         elif do == 4:
             file_list = os.listdir()
             i = 0
             while i < len(file_list):
-                if os.path.isfile(file_list[i]):
-                    newfile = file_list[i] + '.dupl'
-                    shutil.copy(file_list[i], newfile)
+                dupl(file_list[i])
                 i += 1
             print()
         elif do == 5:
             file = input('Укажите имя файла')
-            newfile = file + '.dupl'
-            shutil.copy(file, newfile)
+            dupl(file)
         elif do == 6:
             dirname = input('Укажите имя директории')
             file_list = os.listdir(dirname)
-            i = 0
-            while i < len(file_list):
-                if os.path.isfile(file_list[i]):
-                    fullname = os.path.join(dirname, file_list[i])
-                    if fullname.endswith('.dupl'):
-                        os.remove(fullname)
-                i += 1
+            count = delete(file_list)
+            print("Было удалено:", count)
+
         else:
             print('exiting')
     elif work == 'n':
