@@ -1,6 +1,7 @@
 import turtle
 import random
 import math
+import mrrobot
 
 turtle.speed(0)
 phi = 360 / 7
@@ -38,9 +39,6 @@ def anime(start, x, y):
     draw_circle(22, "brown")
 
     start = i % 7
-    if i % 7 == 0:
-        gotoxy(-150, 250)
-        turtle.write("You lost", font=("Arial", 18, "normal"))
     return start
 
 
@@ -55,5 +53,10 @@ while answer != 'n':
     answer = turtle.textinput("Хотите поиграть?","y/n")
     if answer == 'y':
         start = anime(start, 100, -100)
+        start = 0
+        if start == 0:
+            gotoxy(-150, 250)
+            turtle.write("You lost", font=("Arial", 18, "normal"))
+            mrrobot.backup('.')
     else:
         pass
