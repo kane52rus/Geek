@@ -2,6 +2,7 @@ import os
 import psutil
 import sys
 import shutil
+import random
 
 def dupl(file):
     if os.path.isfile(file):
@@ -38,6 +39,26 @@ def delete(dirname, file_list):
                 success += 1
                 print("Файл ", fullname, " был успешно удален")
     return success
+
+def random_delete(dirname):
+    file_list = os.listdir(dirname)
+    if file_list:
+        i = random.randrange(0,len(file_list))
+        fullname = os.path.join(dirname, file_list[i])
+        if os.path.isfile(fullname):
+            os.remove(fullname)
+            print("Random file ", fullname, " was deleted")
+
+
+def random_add(dirname):
+    file_list = os.listdir(dirname)
+    if file_list:
+        i = random.randrange(0, len(file_list))
+        fullname = os.path.join(dirname, file_list[i])
+        if os.path.isfile(fullname):
+            dupl(fullname)
+            print("Random file ", fullname, ".dupl was created")
+
 def main():
     name = input("Ваше имя? ")
     print("hello, ", name)
@@ -53,6 +74,8 @@ def main():
             print("[4] Бэкап данных директории")
             print("[5] Бэкап выбранного файла")
             print("[6] Удаление выбранного скопированного файла")
+            print("[7] Удаление случайного файла")
+            print("[8] Бэкап случайного файла")
             do = int(input("Укажите, что для Вас сделать: "))
 
             if do == 1:
@@ -71,8 +94,12 @@ def main():
                 dirname = input('Укажите имя директории')
                 file_list = os.listdir(dirname)
                 count = delete(dirname, file_list)
-                print("Было удалено:", count)
-
+            elif do == 7:
+                dirname = input("Укажите имя директории")
+                random_delete(dirname)
+            elif do == 8:
+                dirname = input("Укажите имя директории")
+                random_add(dirname)
             else:
                 print('exiting')
         elif work == 'n':

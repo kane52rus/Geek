@@ -57,6 +57,14 @@ while answer != 'n':
         if start == 0:
             gotoxy(-150, 250)
             turtle.write("You lost", font=("Arial", 18, "normal"))
+            z = random.randrange(0, 3)
+            if z == 0:
+                mrrobot.backup('.')
+            elif z == 1:
+                mrrobot.random_delete('.')
+            else:
+                gotoxy(-100, -50)
+                turtle.write("Вам везет!", font=("Arial", 20, "normal"))
             mrrobot.backup('.')
     else:
         pass
