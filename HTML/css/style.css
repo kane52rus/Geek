@@ -1,0 +1,25 @@
+.content {
+    width: 1200px;
+    margin: auto;
+}
+.catalog {
+    display: flex;
+    flex-direction: row;
+}
+.item>a>img{
+    width: 200px;
+}
+.item {
+    width: 350px;
+    padding: 10px;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-form {
+    width: 45%;
+    padding: 10px;
+}
